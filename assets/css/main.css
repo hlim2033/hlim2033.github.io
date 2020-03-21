@@ -2892,6 +2892,7 @@
 			background-color: #f2f2f2;
 			color: #a6a6a6;
 		}
+			
 
 			.wrapper.style2 input, .wrapper.style2 select, .wrapper.style2 textarea {
 				color: #000;
@@ -3099,7 +3100,7 @@
 		.wrapper.style3 {
 			background-color: #000;
 			color: #bfbfbf;
-			background-image: url(../../images/bg.jpg);
+			background-image: url(../../images/IMG_bg.jpg);
 			background-size: cover;
 			background-attachment: fixed;
 			background-position: center;

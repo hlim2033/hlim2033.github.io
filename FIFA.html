@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Hongseo Bruce Lim</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">HOME</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<!-- <li><a href="https://scholar.google.com/citations?user=Wo5jP64AAAAJ&hl=en">Google Scholar</a></li> -->
+				</ul>
+			</nav>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>Personal Project</p>
+						<h2>FIFA SOCCER PLAYERS ANALYSIS THROUGH GRAPH EMBEDDING</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2">
+				<div class="inner">
+					<div class="box">
+						<div class="content">
+							<header class="align-center">
+								
+							</header>
+							<!-- <h2>Lorem ipsum dolor</h2> -->
+							<p>I love soccer. As much as I love playing soccer, I enjoy watching professional soccer. There are many star players whose names are so well known like Messi and Crisitano Ronaldo. In soccer, each team plays with 11 players, and the roles of players are roughly divided according to four positions: goalkeepers, defenders, midfilders, attackers. Yet what makes soccer so fun to watch is that each player has unique style that is often hard to define only using the four standard positions. The main objective of the project is to see how players could be clustered according to their styles and visualize how the clusters are related. In order to quantify players, I used ratings from FIFA, the EA game, and FIFA provided 34 distinct features like agility, strength, and etc. Nextly, I normalize each playrer's attributes by suming all attirubte scores and divide each element by the sum. The normalization step is done because we are interested in the general style of players rather than the overall quality as a player. For instance, if you are comparing Lionel Messi with a 16-years-old player, their overall rating will be remarkbly different, yet they might share similar playing style. I also decided to only look at palyers whose overall rating is >83 because I want to focus on players that I know. TO visuazlie the dataset, I applied tSNE, a well known dimensionality reduction technique, to the data, and the result where each data is labeled according to its position is shown below. </p>
+							<center>
+								<img src="images/FIFA_IMAGES/POS_TSNE.png" alt="" style="width:700px;height:500px;">
+							</center>
+
+							<p>The fact that GKs are forming a island is definitely a good sign, and it passes a sanity check. Even among the non-gk positions, you can see a transitiong from defenders(blue) to midfilders(green) and finally to attackers(yellow). One thing I found interesting was the one attacker who is located among the midfielders like an outlier. Since GKs are just too different from other playerts, I decided to remove from the datasets, and re-ran the tSNE, and this time I labeled each point with actual player names. I found out that the outlier player is no other than Mario Mandzukic, a former Juventus player well known for his 'midfielder'-like play style. So this is another non-scientific justification of what I am looking at is right.</p>
+
+							<center>
+								<img src="images/FIFA_IMAGES/NAME_TSNE.png" alt="" style="width:700px;height:500px;">
+							</center>
+							
+							<p>So far, we've seen that players are roughly located according to their positions in the tSNE space, yet it is still hard to really cluster based on the tSNE visualization. So I decided to apply the graph methods to further cluster and visuazlie the data. Here I first created a k-nearest-neighbor graph with k = 5. Basically for each and every player(one node), 5 players who are most similar measured by the euclidean distance are connected to the player. Once the k-nearest-neighbor graph is built, the Louvain Method of community detection is used to find community(cluster) among the players. The clustering result along with the graph is then visualized using the force-directed graph methods, which is shown below </p>
+
+
+							<center>
+								<img src="images/FIFA_IMAGES/footballers.png" alt="" style="width:600px;height:600px;">
+							</center>
+
+							<p> The players are clustered into 8 different clusters. And the grouping seems to make sense if you look at the palyers that are clustered together. For example, Lionel Messi(red) is grouped with players well-known for their techniques while Cristano Ronaldo(Green) with goal-scoaring strikers. My beloved player Son Heung-min(black) is clustered with speedy players, yet also close to the red skillful players. Another interesting player, Kevin De Bruyne is clustered with control-oriented midfielders but also close to the skillful red players. The visualization like this enables us to look at what type of palyers exist and how the clusters are related. Lastly, to find what features make each cluster unique, I applied t-test between one group vs other groups. And some of the results are below. For the group where Messi belongs, 'Dribbling', 'Agility', 'Curve' show the most significant difference compared to other groups. For the group where Cristiano Ronaldo belongs, 'Finishing', 'Positioning', 'Volleys' show the most significant difference compared to other groups. </p>
+
+							<center>
+								<img src="images/FIFA_IMAGES/Attri.png" alt="" style="width:650px;height:300px;">
+							</center>
+
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<!-- <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li> -->
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Untitled. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
