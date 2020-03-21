@@ -32,7 +32,7 @@
 				<div class="inner">
 					<header class="align-center">
 						<p>Personal Project</p>
-						<h2>FIFA SOCCER PLAYERS ANALYSIS THROUGH GRAPH EMBEDDING</h2>
+						<h2>DEEP LEARNING ANALYSIS OF THE SIMPSONS IMAGES</h2>
 					</header>
 				</div>
 			</section>
@@ -46,28 +46,42 @@
 								
 							</header>
 							<!-- <h2>Lorem ipsum dolor</h2> -->
-							<p>I love soccer. As much as I love playing soccer, I enjoy watching professional soccer. There are many star players whose names are so well known like Messi and Crisitano Ronaldo. In soccer, each team plays with 11 players, and the roles of players are roughly divided according to four positions: goalkeepers, defenders, midfilders, attackers. Yet what makes soccer so fun to watch is that each player has unique style that is often hard to define only using the four standard positions. The main objective of the project is to see how players could be clustered according to their styles and visualize how the clusters are related. In order to quantify players, I used ratings from FIFA, the EA game, and FIFA provided 34 distinct features like agility, strength, and etc. Nextly, I normalize each playrer's attributes by suming all attirubte scores and divide each element by the sum. The normalization step is done because we are interested in the general style of players rather than the overall quality as a player. For instance, if you are comparing Lionel Messi with a 16-years-old player, their overall rating will be remarkbly different, yet they might share similar playing style. I also decided to only look at palyers whose overall rating is >83 because I want to focus on players that I know. TO visuazlie the dataset, I applied tSNE, a well known dimensionality reduction technique, to the data, and the result where each data is labeled according to its position is shown below. </p>
 							<center>
-								<img src="images/FIFA_IMAGES/POS_TSNE.png" alt="" style="width:700px;height:500px;">
+								<img src="images/SIMPSONS_IMAGES/simpsons.jpg" alt="" style="width:500px;height:400px;">
+							</center>
+							<p>One day, I came across dataset from Kaggle that I could not just pass. The Simpsons Characters Image dataset of 20 characters from The Simpsons, the cartoon: <a href = "https://www.kaggle.com/alexattia/the-simpsons-characters-dataset">https://www.kaggle.com/alexattia/the-simpsons-characters-dataset.</a> Looking at the characters, they share a lot of characteristics that are common among them. For example, their skin color is yellow, and look at the eerily similar eyes on the picture above. Then I got to wonder if machine learning could classify the characters of images. Obviously, this is harder question than the well-known cat vs. dog example. I specifically decided to use the Convolutional Neural Network (CNN) for this task. Instead of the 20 characters provided, I narrowed it down to 10 characters who are more well-known. Below is the some images used to train the model.   
+
+
+						    </p>
+							<center>
+								<img src="images/SIMPSONS_IMAGES/all_charaacters.png" alt="" style="width:800px;height:200px;">
 							</center>
 
-							<p>The fact that GKs are forming a island is definitely a good sign, and it passes a sanity check. Even among the non-gk positions, you can see a transitiong from defenders(blue) to midfilders(green) and finally to attackers(yellow). One thing I found interesting was the one attacker who is located among the midfielders like an outlier. Since GKs are just too different from other playerts, I decided to remove from the datasets, and re-ran the tSNE, and this time I labeled each point with actual player names. I found out that the outlier player is no other than Mario Mandzukic, a former Juventus player well known for his 'midfielder'-like play style. So this is another non-scientific justification of what I am looking at is right.</p>
+							<p>The architecture of the model constitute a series of convolutional kernels, downsampling, pooling, and a couple of fully connected layers with the last layer of 10 nodes, each node representing a character. The model was trained, validated, and finally tested with unseen images. The model succesfully predicted the characters, which is shown in the below confusion matrix. It is intersting to see that the model sometimes confuse Homer Simpson, Bart Simpson, and Lisa Simpson (no wonder they are familiy). </p>
 
 							<center>
-								<img src="images/FIFA_IMAGES/NAME_TSNE.png" alt="" style="width:700px;height:500px;">
+								<img src="images/SIMPSONS_IMAGES//cnn_prediction.png" alt="" style="width:600px;height:600px;">
 							</center>
 							
-							<p>So far, we've seen that players are roughly located according to their positions in the tSNE space, yet it is still hard to really cluster based on the tSNE visualization. So I decided to apply the graph methods to further cluster and visuazlie the data. Here I first created a k-nearest-neighbor graph with k = 5. Basically for each and every player(one node), 5 players who are most similar measured by the euclidean distance are connected to the player. Once the k-nearest-neighbor graph is built, the Louvain Method of community detection is used to find community(cluster) among the players. The clustering result along with the graph is then visualized using the force-directed graph methods, which is shown below </p>
+							<p>So you know that the model can actually classify the characters, some of the layers in the model could be used for dimensionality reduction purpose. The penultimate layer is composed of 50 nodes, so if we plug in an image with 10,000 featurs (100 X 100), you will narrow its features down to 50, and we know that the dimensionality reduction makes sense because the reduced features were used to succesfully classify the characters. Once the features were reduced for images, I applied tSNE to see how the images would look like in a even lower dimension which is shown below. You can see that images of the same character tend to locate close to each other, yet there are some cases where they are mingled. </p>
 
 
 							<center>
-								<img src="images/FIFA_IMAGES/footballers.png" alt="" style="width:600px;height:600px;">
+								<img src="images/SIMPSONS_IMAGES/tsne_characters.png" alt="">
 							</center>
 
-							<p> The players are clustered into 8 different clusters. And the grouping seems to make sense if you look at the palyers that are clustered together. For example, Lionel Messi(red) is grouped with players well-known for their techniques while Cristano Ronaldo(Green) with goal-scoaring strikers. My beloved player Son Heung-min(black) is clustered with speedy players, yet also close to the red skillful players. Another interesting player, Kevin De Bruyne is clustered with control-oriented midfielders but also close to the skillful red players. The visualization like this enables us to look at what type of palyers exist and how the clusters are related. Lastly, to find what features make each cluster unique, I applied t-test between one group vs other groups. And some of the results are below. For the group where Messi belongs, 'Dribbling', 'Agility', 'Curve' show the most significant difference compared to other groups. For the group where Cristiano Ronaldo belongs, 'Finishing', 'Positioning', 'Volleys' show the most significant difference compared to other groups. </p>
+							<p>It is interesting to notice that Krusty the Clown (brown) are really well sepeated and so are Marge Simpson(red) images. If you know them, they actually do stand out from other characters due to their unique features. Also, see how Milhouse Van Houten is loactaed very close to Marge Simpson. They share a same unique feature: the blue hair!</p>
+
 
 							<center>
-								<img src="images/FIFA_IMAGES/Attri.png" alt="" style="width:650px;height:300px;">
+								<img src="images/SIMPSONS_IMAGES/Krusty.png" alt="" style="width:800px;height:400px;">
+							</center>
+
+
+							<p> After this, I decide to apply Variational Autoencoder (VAE) as an another feature reduction tool, and also to visualize what the model is learning. The general architecture I used is a convolutional variational autoencoder where the bottleneck (the latent layer) contains 200 nodes. Once the Vae was trained and validated, I let images from one character pass the VAE and store each of the image's reduced features, get a mean of the reduced features, and then plug in back to the decoder to see what the model 'learned'. The results are shown below. All of them are obviously show yellow skin as expected, but there are some apparent features you can visually confirm. For example, Lisa's head is more bigger then Bart, and Homer is wearing the famous white t-shirt. For Marge, check out the blue hair!</p>
+
+							<center>
+								<img src="images/SIMPSONS_IMAGES/vae.png" alt="" style="width:900px;height:450px;">
 							</center>
 
 
