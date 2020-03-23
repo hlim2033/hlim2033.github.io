@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Hongseo Bruce Lim</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">HOME</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<!-- <li><a href="https://scholar.google.com/citations?user=Wo5jP64AAAAJ&hl=en">Google Scholar</a></li> -->
+				</ul>
+			</nav>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>Personal Project</p>
+						<h2>AGENT-BASED MODELING OF VIRUS SPREAD AND SOCIAL DISTANCING EFFECTS</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2">
+				<div class="inner">
+					<div class="box">
+						<div class="content">
+							<header class="align-center">
+								
+							</header>
+							<!-- <h2>Lorem ipsum dolor</h2> -->
+
+							<center>
+								<img src="images/CORONA_IMAGES/CORONA.png" alt="" style="width:405px;height:187px;">
+							</center>
+
+							<p>COVID-19 hit us hard. When writing this, I am working from home just like many others. Such radical 'social distancing' is highly encouraged because the virus we are facing now is so highly contagious. For this project, I created a very simple virus-spreading simulation using the agent-baesd modeling. Simulation becomes very important especially when we cannot implement new conditions/constratins in real-life setting. For this very simple simulations, I introduced 6 parameters: (1) Population size, (2) Area of the simulated space, (3) Moving level, (4) Infection radius, (5) Transmission Probability, (6) Social Distancing level. This is how the simulation works. The number of 'people' is determined by the (1)population size. They are living in the space whose size is determined by (2)area of the simualted space. Each person is basically moving according to the random-walk, in each time step, the person could move to adjecnt tiles or it could stay the same. How far(in # of tiles) the person could travle is determined by (3)Moving level. Once two people are nearby each other determined by the (4) Infection radius, and if one person has a disease already, the sick person will pass the disease to the other person with the probability determined by (5) transmission probability. (6) Social distancing let x% of the population remain still in a given time step. If 100%, none of them will move, and if 0%, all of them will move around. Let see how different values of parameter result in different simulation results. For first simulation, I tested the effect of (5) transmission probability. I tested 20% transmission probability vs 80% transmission probability. The top panel is low-probability simulation, and the bottom panel is the high-probability simulation.  
+							</p>
+							<center>
+								<img src="images/CORONA_IMAGES/simulation_low_prob.gif" alt="" style="width:400px;height:300px;">
+							</center>
+
+							<center>
+								<img src="images/CORONA_IMAGES/simulation_high_prob.gif" alt="" style="width:400px;height:300px;">
+							</center>
+
+							<p>You can see the effect of different transmission probablity. In real-world setting, we would never know what this percent is. It would often need to be reverse-engineered to find out the value. Yet, knowing this is very important for research and hence prevention purposes. The next simulation, I wanted to see the effects of population density. We are already seeing the major cities like New York and cities of California are more heavily affected by the virus than rural counterparts. To see that, I simulated two different (1) Population sizes: N = 300 vs N = 50. The top panel is N = 50, and the bottom is N = 300 </p>
+
+							<center>
+								<img src="images/CORONA_IMAGES/simulation_south_dakota.gif" alt="" style="width:400px;height:300px;">
+							</center>
+
+							<center>
+								<img src="images/CORONA_IMAGES/simulation_nyc.gif" alt="" style="width:400px;height:300px;">
+							</center>
+
+							<p>You can clearly see the adverse effect of crowdedness in the above simulations, and that is why you don't want to go to places where many people gather right now. Lastly, I wanted to see how the social distancing could really help. I simulated two (6) social distancing level: 10% vs 90%. 10% means that only 10% population remain still, and 90% means that 90% of population remain still. The top panel shows 10% staying and the bottom panel shwoing 90% still.</p>
+
+
+							<center>
+								<img src="images/CORONA_IMAGES/simulation1_10.gif" alt="" style="width:400px;height:300px;">
+							</center>
+							<center>
+								<img src="images/CORONA_IMAGES/simulation1_90.gif" alt="" style="width:400px;height:300px;">
+							</center>
+
+							<p> This is why we are social distancing, and I believe the current quarantines and radical social distancing would eventually curb the spreading of the virus! The above simulation is obviously over-simplication of what is going on outside. To be more realistic, we also have to think about recovery rate, death rate, re-catching the virus rate, etc. And more obviously, I believe there are many experts who are already working on this, so hats off to them and all the healthcare heroes fighting this. For us, let's support them by applying social_disancing parameter to 100%!</p>
+
+							<!-- <center>
+								<img src="images/FIFA_IMAGES/Attri.png" alt="" style="width:650px;height:300px;">
+							</center> -->
+
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<!-- <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li> -->
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Untitled. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
